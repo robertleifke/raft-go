@@ -2,8 +2,11 @@ package raft
 
 import (
 	// "bytes"
+	// "os"
+	// "log"
+	// "errors"
 	// "math/rand"
-	// "sync"
+	"sync"
 	// "time"
 	// "fmt"
 
@@ -11,24 +14,21 @@ import (
 	// "github.com/dianchengwangCHN/raft-key-value-store/labrpc"
 )
 
-type ServerState int 
+type NodeState int 
 
 const (
-	leader ServerState = iota
-	candidate ServerState = iota
-	follower ServerState = iota
+	leader 		NodeState = 0
+	candidate 	NodeState = 1
+	follower 	NodeState = 2
 
 	heartbeatInterval int = 100
 	electionTimeoutMin int = 150
 	electionTimeoutMax int = 300
 )
 
-
-//
-// A Go object implementing a single Raft peer.
-//
-type Raft struct {
-	mu        sync.Mutex          // Lock to protect shared access to this peer's state
+type Node struct {
+	id			uint64 // id of Raft node
+	mu        	sync.Mutex          // Lock to protect shared access to this peer's state
 	peers     []*labrpc.ClientEnd // RPC end points of all peers
 	persister *Persister          // Object to hold this peer's persisted state
 	me        int                 // this peer's index into peers[]
