@@ -94,5 +94,5 @@ type Node struct {
 
 // 	go node.sendCommit() // Start the commit channel as a goroutine
 // 	return node
-}
+//}
 
