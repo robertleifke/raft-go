@@ -1,20 +1,19 @@
-# Raft Key-Value Store
+# Raft 
 
-## 2A
+This repository implements Raft in Go.
 
--   Implement the `Start()` method in the `Raft` struct.    
--   Implement the `Apply()` method in the `Raft` struct.
--   Implement the `Commit()` method in the `Raft` struct.
--   Implement the `GetState()` method in the `Raft` struct.
--   Implement the `SetState()` method in the `Raft` struct.
+## Usage
 
-## 2B
+```bash
+go run raft.go
+```
 
--   Implement the `RequestVote()` method in the `Raft` struct.
--   Implement the `RequestVoteReply()` method in the `Raft` struct.
+## Dependencies
 
-## 2C
+```bash
+run go mod vendor to install dependencies
+```
 
--   Implement the `AppendEntries()` method in the `Raft` struct.
--   Implement the `AppendEntriesReply()` method in the `Raft` struct.
--   Implement the `startLogCommitterDaemon()` method in the `Raft` struct.
+Requires the protoc compiler with the go output plugin installed as it uses Protocol Buffers.
+
+Redis should be installed with default options.
