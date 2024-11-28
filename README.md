@@ -14,10 +14,15 @@ go run raft.go
 
 ## Dependencies
 
+Requires the protoc compiler with the go output plugin installed as it uses Protocol Buffers.
+
 ```bash
 run go mod vendor to install dependencies
 ```
 
-Requires the protoc compiler with the go output plugin installed as it uses Protocol Buffers.
+Set up redis instance with default options
 
-Redis should be installed with default options.
+```bash
+make clean
+```
+
